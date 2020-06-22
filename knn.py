@@ -32,6 +32,13 @@ dataset = [[2.7810836,2.550537003,0],
 	[8.675418651,-0.242068655,1],
 	[7.673756466,3.508563011,1]]
 
+#test euclidean_distance
+# row0 = dataset[0]
+# for row in dataset:
+# 	distance = euclidean_distance(row0, row)
+# 	print(distance)
+
+#test get_neighbors
 neighbors = get_neighbors(dataset, dataset[0], 3)
 for neighbor in neighbors:
 	print(neighbor)
