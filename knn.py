@@ -39,7 +39,18 @@ dataset = [[2.7810836,2.550537003,0],
 # 	print(distance)
 
 #test get_neighbors
-neighbors = get_neighbors(dataset, dataset[0], 3)
-for neighbor in neighbors:
-	print(neighbor)
+# neighbors = get_neighbors(dataset, dataset[0], 3)
+# for neighbor in neighbors:
+# 	print(neighbor)
 
+def predict_classification(train, test_row, num_neighbors):
+	neighbors = get_neighbors(train, test_row, num_neighbors)
+	output_values = [row[-1] for row in neighbors]
+	#print(output_values)
+	#print(output_values.count)
+	#print(set(output_values))
+	prediction = max(set(output_values), key=output_values.count)
+	return prediction
+
+prediction = predict_classification(dataset, dataset[0], 3)
+print('Expected %d, Got %d.' % (dataset[0][-1], prediction))
